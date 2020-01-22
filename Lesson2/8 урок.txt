@@ -1,0 +1,56 @@
+1. Подключиться с помощью браузера к ресурсу, поддерживающему http (например, http://example.org/), и в Wireshark или CharlesProxy (или BurpSuite, или в любом другом http прокси) проанализировать заголовки.
+
+Браузер определяет ip адрес соответствующий домену example.org, 
+Устанавливает соединеине с ip адресом на порт по умолчанию 80.
+Формирует и отправляет HTTP запрос (GET /). 
+Получает ответ 304.
+
+Request URL: http://example.org/
+Request Method: GET
+Status Code: 304 Not Modified
+Remote Address: 93.184.216.34:80
+Referrer Policy: no-referrer-when-downgrade
+Accept-Ranges: bytes
+Cache-Control: max-age=604800
+Content-Encoding: gzip
+Content-Length: 648
+Content-Type: text/html; charset=UTF-8
+Date: Thu, 05 Dec 2019 14:17:27 GMT
+Etag: "3147526947"
+Expires: Thu, 12 Dec 2019 14:17:27 GMT
+Last-Modified: Thu, 17 Oct 2019 07:18:26 GMT
+Server: ECS (nyb/1D1F)
+Vary: Accept-Encoding
+X-Cache: HIT
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: ru,en;q=0.9
+Cache-Control: max-age=0
+Connection: keep-alive
+Host: example.org
+If-Modified-Since: Thu, 17 Oct 2019 07:18:26 GMT
+If-None-Match: "3147526947"
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 YaBrowser/19.12.0.358 Yowser/2.5 Safari/537.36
+
+
+2. Скачать OpenServer или любую другую сборку веб сервера (XAMPP, wampserver, можно использовать виртуалку или VDS с Linux и веб-сервером).
+
+Скачал полнубю версию  OpenServer, потестировал
+
+
+3. Протестировать рассмотренные в методичке пример с PHP, которые используют данные, полученные от html-форм (в разделе "Загрузка данных через PHP").
+
+
+POST test.php HTTP/1.1
+Accept: */*
+Referer: 
+Accept-Language: ru
+Content-Type: application/x-www-form-urlencoded
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)
+Host: 127.0.0.1
+Content-Length: 106
+Connection: Keep-Alive
+Cache-Control: no-cache
+login=%E4%E0%ED%ED%FB%E5+email=%E4%E0%ED%ED%FB%E5+POST 
