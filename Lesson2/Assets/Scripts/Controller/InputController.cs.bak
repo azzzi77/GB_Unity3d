@@ -22,7 +22,8 @@ namespace Geekbrains
             {
                 ServiceLocator.Resolve<FlashLightController>().Switch(ServiceLocator.Resolve<Inventory>().FlashLight);
             }
-           
+            //todo реализовать выбор оружия по колесику мыши
+
             float scroll = Input.GetAxis("Mouse ScrollWheel");
             if (scroll != 0.0f)
             {
