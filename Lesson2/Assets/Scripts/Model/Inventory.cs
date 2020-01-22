@@ -27,6 +27,10 @@ namespace Geekbrains
         }
 
         //todo Добавить функционал
+        public Weapon SelectWeapon(int i)
+        {
+            return Weapons[i];
+        }
 
         public void RemoveWeapon(Weapon weapon)
         {

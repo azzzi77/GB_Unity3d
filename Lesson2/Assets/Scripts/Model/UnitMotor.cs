@@ -6,7 +6,7 @@ public sealed class UnitMotor : IMotor
 	private Transform _instance;
 
 	private float _speedMove =10;
-	private float _jumpPower = 10;
+	private float _jumpPower = 15;
 	private float _gravityForce;
 	private Vector2 _input;
 	private Vector3 _moveVector;

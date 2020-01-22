@@ -29,11 +29,11 @@ namespace Geekbrains
 
                 if (Hp <= 0)
                 {
-                    if (!TryGetComponent<Rigidbody>(out _))
-                    {
-                        gameObject.AddComponent<Rigidbody>();
-                    }
-                    Destroy(gameObject, 10);
+                   // if (!TryGetComponent<Rigidbody>(out _))
+                   // {
+                   //     gameObject.AddComponent<Rigidbody>();
+                   // }
+                    Destroy(gameObject);
 
                     OnPointChange?.Invoke();
                     _isDead = true;

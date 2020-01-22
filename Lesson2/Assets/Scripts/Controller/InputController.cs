@@ -34,16 +34,15 @@ namespace Geekbrains
                         _mouseScroll++;
                     else
                         _mouseScroll = 0;
-                    SelectWeapon(_mouseScroll);
-                }
+               }
                 else
                 {
                     if (_mouseScroll > 0)
                         _mouseScroll--;
                     else
                         _mouseScroll = allWeapon-1;
-                    SelectWeapon(_mouseScroll);
                 }
+                SelectWeapon(_mouseScroll);
             }
 
                 if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -90,7 +89,7 @@ namespace Geekbrains
         private void SelectWeapon(int i)
         {
             ServiceLocator.Resolve<WeaponController>().Off();
-            var tempWeapon = ServiceLocator.Resolve<Inventory>().Weapons[i]; //todo инкапсулировать
+            var tempWeapon = ServiceLocator.Resolve<Inventory>().SelectWeapon(i); 
             if (tempWeapon != null)
             {
                 ServiceLocator.Resolve<WeaponController>().On(tempWeapon);
