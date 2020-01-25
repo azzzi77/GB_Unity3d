@@ -2,8 +2,6 @@
 {
 	public interface IInitialization
 	{
-        Weapon[] Weapons { get; }
-
-        void Initialization();
+		void Initialization();
 	}
 }

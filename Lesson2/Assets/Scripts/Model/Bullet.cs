@@ -11,9 +11,8 @@ namespace Geekbrains
 
             if (tempObj != null)
             {
-                var bulletPlace = gameObject.transform.position;
-                Debug.Log("пуля в "+ bulletPlace+" сила урона "+ _curDamage);
-                tempObj.SetDamage(new InfoCollision(_curDamage, Rigidbody.velocity));
+                tempObj.SetDamage(new InfoCollision(_curDamage, collision.contacts[0], collision.transform,
+                    Rigidbody.velocity));
             }
 
             DestroyAmmunition();

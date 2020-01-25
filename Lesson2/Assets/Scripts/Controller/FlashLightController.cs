@@ -6,8 +6,6 @@ namespace Geekbrains
     {
         private FlashLightModel _flashLightModel;
 
-        public Weapon[] Weapons => throw new System.NotImplementedException();
-
         public void Initialization()
         {
             UiInterface.LightUiText.SetActive(false);

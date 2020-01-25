@@ -9,7 +9,6 @@ namespace Geekbrains
 		private int _minCountAmmunition = 20;
 		private int _countClip = 5;
 		public Ammunition Ammunition;
-        public GameObject MyEffect;
 		public Clip Clip;
 
 		public AmmunitionType[] AmmunitionTypes = {AmmunitionType.Bullet};

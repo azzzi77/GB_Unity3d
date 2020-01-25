@@ -2,19 +2,15 @@
 {
 	public sealed class Gun : Weapon
 	{
-        public override void Fire()
+		public override void Fire()
 		{
 			if (!_isReady) return;
 			if (Clip.CountAmmunition <= 0) return;
 			var temAmmunition = Instantiate(Ammunition, _barrel.position, _barrel.rotation);//todo Pool object
-            temAmmunition.AddForce(_barrel.forward * _force);
+			temAmmunition.AddForce(_barrel.forward * _force);
 			Clip.CountAmmunition--;
 			_isReady = false;
-
-            var temAmmunEff = Instantiate(MyEffect, _barrel.position, _barrel.rotation);//todo Pool object
-            Destroy(temAmmunEff,0.2f);
-
-            Invoke(nameof(ReadyShoot), _rechergeTime);
+			Invoke(nameof(ReadyShoot), _rechergeTime);
 		}
 	}
 }

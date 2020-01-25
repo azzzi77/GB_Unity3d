@@ -9,37 +9,26 @@ namespace Geekbrains
 		
         public float Hp = 100;
         private bool _isDead;
-        //броня у противника
-        public float Armor = 50;
-
+        //todo дописать поглащение урона
         public void SetDamage(InfoCollision info)
         {
             if (_isDead) return;
-
-            if (Armor > 0)
+            if (Hp > 0)
             {
-                Armor -= info.Damage;
+                Hp -= info.Damage;
             }
-            if (Armor <= 0)
+
+            if (Hp <= 0)
             {
-                if (Hp > 0)
+                if (!TryGetComponent<Rigidbody>(out _))
                 {
-                    Hp -= info.Damage;
+                    gameObject.AddComponent<Rigidbody>();
                 }
+                Destroy(gameObject, 10);
 
-                if (Hp <= 0)
-                {
-                   // if (!TryGetComponent<Rigidbody>(out _))
-                   // {
-                   //     gameObject.AddComponent<Rigidbody>();
-                   // }
-                    Destroy(gameObject);
-
-                    OnPointChange?.Invoke();
-                    _isDead = true;
-                }
+                OnPointChange?.Invoke();
+                _isDead = true;
             }
-    
         }
 
         public string GetMessage()
